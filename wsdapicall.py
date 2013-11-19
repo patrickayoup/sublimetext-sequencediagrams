@@ -8,33 +8,31 @@ class WebSequenceDiagramAPICall(Thread):
     sublime text from blocking.
     '''
 
-    def __init__(self, style, message, format, api_version, timeout):
+    ENDPOINT = 'http://www.websequencediagrams.com/'
+
+    def __init__(self, wsd_request, timeout = 5):
         '''Initializes the API call before sending the message.''' 
 
-        self.style = style 
-        self.message = message 
-        self.format = format
-        self.api_version = api_version 
+        self.wsd_request = wsd_request
         self.timeout = timeout  
         self.result = None
 
-        super.__init__(self)
+        super(WebSequenceDiagramAPICall, self).__init__()
 
     def run(self):
         '''Executes the thread. Makes the API request.'''
         
+        #TODO: Handle Errors from API Call (Syntax Errors)
         try:  
-            data = urllib.urlencode({'css': self.original})  
-            request = urllib2.Request('http://prefixr.com/api/index.php', data,  
-                headers={"User-Agent": "Sublime Prefixr"})  
-            http_file = urllib2.urlopen(request, timeout=self.timeout)  
-            self.result = http_file.read()  
-            return  
-
-        except (urllib2.HTTPError) as (e):  
-            err = '%s: HTTP error %s contacting API' % (__name__, str(e.code))  
+            data = urllib.urlencode(self.wsd_request.__dict__)  
+            request = urllib2.Request(self.ENDPOINT, data)  
+            response = urllib2.urlopen(request, timeout = self.timeout)  
+            self.result = response.read()
+        except (urllib2.HTTPError) as (e):
+            error = 'HTTP ERROR: {0}'.format(str(e.code))  
+            sublime.error_message(error)  
+            self.result = False
         except (urllib2.URLError) as (e):  
-            err = '%s: URL error %s contacting API' % (__name__, str(e.reason))  
-
-        sublime.error_message(err)  
-        self.result = False
+            error = 'URL ERROR: {0}'.format(str(e.reason))
+            sublime.error_message(error)  
+            self.result = False

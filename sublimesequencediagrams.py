@@ -24,3 +24,7 @@ class WebSequenceDiagramsCommand(sublime_plugin.TextCommand):
 
         #Create the request.
         wsd_request = WebSequenceDiagramRequest(self.DEFAULT_FORMAT, diagram_source, self.DEFAULT_FORMAT, self.API_VERSION)
+
+        #Make the API call.
+        api_call = WebSequenceDiagramAPICall(wsd_request)
+        api_call.start()

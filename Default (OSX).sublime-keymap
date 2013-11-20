@@ -1,0 +1,13 @@
+[  
+    {   
+    	"keys": ["super+b"],
+    	"command": "web_sequence_diagrams",
+    	"context": [
+      		{
+      			"key": "selector",
+      			"operator": "equal",
+      			"operand": "source.wsd"
+  			 }
+  		]
+    }  
+]

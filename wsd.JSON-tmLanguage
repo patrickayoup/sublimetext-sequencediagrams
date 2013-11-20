@@ -1,0 +1,7 @@
+{
+    "name": "Web Sequence Diagrams",
+    "fileTypes": ["wsd"], 
+    "scopeName": "source.wsd", 
+    "patterns": [], 
+    "uuid": "130e34eb-8fe5-4150-b39a-813d7ce56c14" 
+}

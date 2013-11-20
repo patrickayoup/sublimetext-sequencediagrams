@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>wsd</string>
+	</array>
+	<key>name</key>
+	<string>Web Sequence Diagrams</string>
+	<key>patterns</key>
+	<array>
+	</array>
+	<key>scopeName</key>
+	<string>source.wsd</string>
+	<key>uuid</key>
+	<string>130e34eb-8fe5-4150-b39a-813d7ce56c14</string>
+</dict>
+</plist>

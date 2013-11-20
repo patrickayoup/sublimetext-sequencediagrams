@@ -1,9 +1,10 @@
-import sublime, sublime_plugin
+import sublime
+from sublime_plugin import TextCommand
 from wsdapicall import WebSequenceDiagramAPICall
 from wsdrequest import WebSequenceDiagramRequest
 from wsdapilistener import ApiCallListener
 
-class WebSequenceDiagramsCommand(sublime_plugin.TextCommand):
+class WebSequenceDiagramsCommand(TextCommand):
     '''
     Generates a Web Sequence Diagram using the source code
     in the editor.
@@ -29,7 +30,7 @@ class WebSequenceDiagramsCommand(sublime_plugin.TextCommand):
         #Create the request.
         wsd_request = WebSequenceDiagramRequest(self.DEFAULT_DIAGRAM_STYLE, diagram_source, self.DEFAULT_FORMAT, self.API_VERSION)
 
-        #Make the API call.
+        #Subscribe to the thread and make the API call.
         api_call = WebSequenceDiagramAPICall(wsd_request)
         api_call.subscribe(api_call_listener)
         api_call.start()

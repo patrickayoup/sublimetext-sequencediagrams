@@ -36,7 +36,7 @@ class WebSequenceDiagramAPICall(Thread):
     def run(self):
         '''Executes the thread. Makes the API request.'''
         
-        try:  
+        try:
             data = urllib.urlencode(self.wsd_request.__dict__)  
             request = urllib2.Request(self.ENDPOINT, data)
             response = urllib2.urlopen(request, timeout = self.timeout)  
@@ -50,4 +50,5 @@ class WebSequenceDiagramAPICall(Thread):
             sublime.error_message(error)  
             self.result = False
         
+        #Notify all observers about the end of the call.
         self._notify()

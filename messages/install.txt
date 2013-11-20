@@ -1,0 +1,10 @@
+Thank you for installing EZWebSequenceDiagrams!
+
+I hope you enjoy using this plugin, any comments or suggestions are welcome, contact me on Github!
+https://github.com/patrickayoup/sublimetext-sequencediagrams
+
+Usage
+=====
+
+* Write your web sequence diagram source code in a file with the extension *.wsd.
+* Generate your diagram by typing `super+b` (OS X) or `ctrl+b` (Windows, Linux). Your diagram should open in your web browser.

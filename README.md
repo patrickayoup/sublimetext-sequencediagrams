@@ -1,4 +1,4 @@
-Web Sequence Diagrams
+EZ Web Sequence Diagrams
 =====================
 
 Sublime Text 2 plugin to generate sequence diagrams on websequencediagrams.com
@@ -6,7 +6,7 @@ Sublime Text 2 plugin to generate sequence diagrams on websequencediagrams.com
 Installation
 ============
 
-Coming soon.
+* Using Package Control, install "EZWebSequenceDiagrams"
 
 Usage
 =====

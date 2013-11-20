@@ -1,6 +1,7 @@
 import sublime, sublime_plugin
 from wsdapicall import WebSequenceDiagramAPICall
 from wsdrequest import WebSequenceDiagramRequest
+from wsdapilistener import ApiCallListener
 
 class WebSequenceDiagramsCommand(sublime_plugin.TextCommand):
     '''
@@ -22,9 +23,13 @@ class WebSequenceDiagramsCommand(sublime_plugin.TextCommand):
 
         diagram_source = self._get_diagram_source()
 
+        #Create the listener.
+        api_call_listener = ApiCallListener()
+
         #Create the request.
-        wsd_request = WebSequenceDiagramRequest(self.DEFAULT_FORMAT, diagram_source, self.DEFAULT_FORMAT, self.API_VERSION)
+        wsd_request = WebSequenceDiagramRequest(self.DEFAULT_DIAGRAM_STYLE, diagram_source, self.DEFAULT_FORMAT, self.API_VERSION)
 
         #Make the API call.
         api_call = WebSequenceDiagramAPICall(wsd_request)
+        api_call.subscribe(api_call_listener)
         api_call.start()

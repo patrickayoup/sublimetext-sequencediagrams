@@ -10,7 +10,8 @@ class WebSequenceDiagramRequest(object):
         self.style = style 
         self.message = message 
         self.format = format
-        self.api_version = api_version
+        #Camel case is important here for their api.
+        self.apiVersion = api_version
 
     def __str__(self):
         '''Returns a string representation of the request.'''

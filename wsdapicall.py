@@ -1,6 +1,8 @@
+import sublime
 from threading import Thread
 import urllib  
 import urllib2
+import json
 
 class WebSequenceDiagramAPICall(Thread):
     '''
@@ -16,18 +18,29 @@ class WebSequenceDiagramAPICall(Thread):
         self.wsd_request = wsd_request
         self.timeout = timeout  
         self.result = None
+        self.subscribers = list()
 
         super(WebSequenceDiagramAPICall, self).__init__()
+
+    def subscribe(self, api_call_listener):
+        '''Adds a subscriber to the thread.'''
+
+        self.subscribers.append(api_call_listener)
+
+    def _notify(self):
+        '''Notifies all subscribers of an event.'''
+
+        for subscriber in self.subscribers:
+            subscriber.on_thread_complete(self)
 
     def run(self):
         '''Executes the thread. Makes the API request.'''
         
-        #TODO: Handle Errors from API Call (Syntax Errors)
         try:  
             data = urllib.urlencode(self.wsd_request.__dict__)  
-            request = urllib2.Request(self.ENDPOINT, data)  
+            request = urllib2.Request(self.ENDPOINT, data)
             response = urllib2.urlopen(request, timeout = self.timeout)  
-            self.result = response.read()
+            self.result = json.loads(response.read())
         except (urllib2.HTTPError) as (e):
             error = 'HTTP ERROR: {0}'.format(str(e.code))  
             sublime.error_message(error)  
@@ -36,3 +49,5 @@ class WebSequenceDiagramAPICall(Thread):
             error = 'URL ERROR: {0}'.format(str(e.reason))
             sublime.error_message(error)  
             self.result = False
+        
+        self._notify()

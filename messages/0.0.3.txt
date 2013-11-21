@@ -1,0 +1,4 @@
+V0.0.3 Changelog:
+
+* WebSequence diagrams by @ffesseler is now maintained by @patrickayoup on Github under the name EZWebSequenceDiagrams. 
+* Generation of diagrams can be done by typing super+b or ctrl+b on source files with a *.wsd extension.

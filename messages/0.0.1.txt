@@ -1,3 +1,0 @@
-V0.0.1 Changelog:
-
-* Generation of diagrams can be done by typing super+b or ctrl+b on source files with a *.wsd extension.

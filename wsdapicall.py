@@ -20,7 +20,7 @@ class WebSequenceDiagramAPICall(Thread):
         self.result = None
         self.subscribers = list()
 
-        super(WebSequenceDiagramAPICall, self).__init__()
+        Thread.__init__(self)
 
     def subscribe(self, api_call_listener):
         '''Adds a subscriber to the thread.'''

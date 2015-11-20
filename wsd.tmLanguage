@@ -6,10 +6,62 @@
 	<array>
 		<string>wsd</string>
 	</array>
+	<key>foldingStartMarker</key>
+	<string>/\*\*|\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>\*\*/|^\s*\}</string>
 	<key>name</key>
 	<string>Web Sequence Diagrams</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>match</key>
+			<string>\b(?i:title)\b</string>
+			<key>name</key>
+			<string>storage.type.wsd</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(?i:note|over|under|left of|right of) \b</string>
+			<key>name</key>
+			<string>string.wsd</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(?i:)\b</string>
+			<key>name</key>
+			<string>string.interpolated.wsd</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(parallel|alt|else|opt|loop)\b</string>
+			<key>name</key>
+			<string>keyword.control.logic.</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(end)\b</string>
+			<key>name</key>
+			<string>keyword.control.logic.wsd</string>
+		</dict>
+		<dict>
+			<key>match</keywordy>
+			<string>\:</string>
+			<key>name</key>
+			<string>keyword.control.evaluation.wsd</string>
+		</dict>
+		<dict>
+			<key>match</keywordy>
+			<string>\-\-&gt;\+|\-\-&gt;\-|\-\-&gt;</string>
+			<key>name</key>
+			<string>support.function.wsd</string>
+		</dict>
+		<dict>
+			<key>match</keywordy>
+			<string>\-&gt;\+|\-&gt;\-|-&gt;</string>
+			<key>name</key>
+			<string>support.function.wsd</string>
+		</dict>
 	</array>
 	<key>scopeName</key>
 	<string>source.wsd</string>

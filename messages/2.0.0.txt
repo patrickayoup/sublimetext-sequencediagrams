@@ -1,0 +1,5 @@
+V2.0.0 Changelog:
+
+* Support for using an API key.
+* Settings are now set in a settings file.
+* Syntax highlighting

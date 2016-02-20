@@ -1,8 +1,9 @@
 import sublime
 from threading import Thread
-import urllib  
-import urllib2
+import urllib.parse
+import urllib.request
 import json
+import re
 
 class WebSequenceDiagramAPICall(Thread):
     '''
@@ -37,15 +38,19 @@ class WebSequenceDiagramAPICall(Thread):
         '''Executes the thread. Makes the API request.'''
         
         try:
-            data = urllib.urlencode(self.wsd_request.__dict__)  
-            request = urllib2.Request(self.ENDPOINT, data)
-            response = urllib2.urlopen(request, timeout = self.timeout)  
-            self.result = json.loads(response.read())
-        except (urllib2.HTTPError) as (e):
+            data = urllib.parse.urlencode(self.wsd_request.__dict__)
+            data = data.encode('UTF-8')
+            request = urllib.request.Request(self.ENDPOINT, data)
+            response = urllib.request.urlopen(request, timeout = self.timeout)
+            string = response.read().decode("UTF-8")
+            # the api isn't sending valid JSON, so we have to quote the parameters
+            string = re.sub(r"(img|page|numPages|errors):", r'"\1":', string)
+            self.result = json.loads(string)
+        except urllib.error.HTTPError as e:
             error = 'HTTP ERROR: {0}'.format(str(e.code))  
             sublime.error_message(error)  
             self.result = False
-        except (urllib2.URLError) as (e):  
+        except urllib.error.URLError as e:  
             error = 'URL ERROR: {0}'.format(str(e.reason))
             sublime.error_message(error)  
             self.result = False

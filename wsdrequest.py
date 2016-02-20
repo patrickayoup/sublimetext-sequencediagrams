@@ -1,17 +1,20 @@
+import sublime
+
 class WebSequenceDiagramRequest(object):
     '''
     Represents a request for a diagram to be passed
     in an API call.
     '''
 
-    def __init__(self, style, message, format, api_version):
+    def __init__(self, message, settings):
         '''Initializes the API request.'''
-        
-        self.style = style 
-        self.message = message 
-        self.format = format
+
         #Camel case is important here for their api.
-        self.apiVersion = api_version
+        self.apiVersion = settings.get('api_version')
+        self.style = settings.get('style') 
+        self.format = settings.get('format')
+        self.apikey = settings.get('apikey')
+        self.message = message 
 
     def __str__(self):
         '''Returns a string representation of the request.'''

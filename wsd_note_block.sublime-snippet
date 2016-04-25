@@ -1,0 +1,13 @@
+<snippet>
+  <!-- Example: Hello, ${1:this} is a ${2:snippet}. -->
+  <content><![CDATA[
+note ${1:over|right of|left of} ${5:Object,}
+  ${0}
+end note
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>note</tabTrigger>
+  <description>Add note block</description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.wsd</scope>
+</snippet>

@@ -17,8 +17,8 @@ Usage
 Snippets
 ========
 
-`alt`  - Adds an ALT block
-`loop` - Adds a LOOP block
-`note` - Adds a NOTE single ou multiline
-`opt`  - Adds an OPT block
+* `alt`  - Adds an ALT block
+* `loop` - Adds a LOOP block
+* `note` - Adds a NOTE single ou multiline
+* `opt`  - Adds an OPT block
 

@@ -1,0 +1,3 @@
+V2.1.0 Changelog:
+
+* Added snippets for ALT, LOOP, NOTE and OPT blocks.

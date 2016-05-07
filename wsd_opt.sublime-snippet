@@ -1,0 +1,13 @@
+<snippet>
+  <!-- Example: Hello, ${1:this} is a ${2:snippet}. -->
+  <content><![CDATA[
+opt ${1:text}
+    ${2:A}->${3:B}: $SELECTION$0
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>opt</tabTrigger>
+  <description>Adds an OPT block</description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.wsd</scope>
+</snippet>

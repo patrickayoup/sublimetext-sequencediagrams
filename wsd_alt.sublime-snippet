@@ -1,0 +1,15 @@
+<snippet>
+  <!-- Example: Hello, ${1:this} is a ${2:snippet}. -->
+  <content><![CDATA[
+alt ${1:Conditional}
+    ${2:A}->${3:B}: ${4:$SELECTION}
+else ${5:Conditional}
+    $2->$3: ${6:text}
+end$0
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>alt</tabTrigger>
+  <description>Add alt block</description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.wsd</scope>
+</snippet>

@@ -45,19 +45,19 @@
 			<string>keyword.control.logic.wsd</string>
 		</dict>
 		<dict>
-			<key>match</keywordy>
+			<key>match</key>
 			<string>\:</string>
 			<key>name</key>
 			<string>keyword.control.evaluation.wsd</string>
 		</dict>
 		<dict>
-			<key>match</keywordy>
+			<key>match</key>
 			<string>\-\-&gt;\+|\-\-&gt;\-|\-\-&gt;</string>
 			<key>name</key>
 			<string>support.function.wsd</string>
 		</dict>
 		<dict>
-			<key>match</keywordy>
+			<key>match</key>
 			<string>\-&gt;\+|\-&gt;\-|-&gt;</string>
 			<key>name</key>
 			<string>support.function.wsd</string>
